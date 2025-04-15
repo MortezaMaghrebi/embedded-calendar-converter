@@ -39,10 +39,10 @@ DateTimeGregorian Convert_Int32_DateTimeGregorian(uint32_t _counter)
 	static volatile uint32_t yeardays;	yeardays = 365;
 	static volatile uint32_t monthdays;	monthdays = 31;
 
-	date.weekday = days % 7 -1;
-	if (date.weekday < 0) date.weekday += 7;
-	if (date.weekday > 6)date.weekday = date.weekday - 7;
-
+	date.week = days % 7 ;
+	if(date.week==0) date.week=6;
+	else date.week-=1;
+	
 
 	while (days > yeardays)
 	{
